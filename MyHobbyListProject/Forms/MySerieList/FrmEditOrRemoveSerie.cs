@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MyHobbyListProject
+namespace MyHobbyListProject.Forms.MySerieList
 {
-    public partial class Form1 : Form
+    public partial class FrmEditOrRemoveSerie : Form
     {
-        public Form1()
+        public FrmEditOrRemoveSerie()
         {
             InitializeComponent();
         }
