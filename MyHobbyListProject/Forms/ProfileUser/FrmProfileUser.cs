@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyHobbyListProject.Forms.MenuList;
 
 namespace MyHobbyListProject.Forms.ProfileUser
 {
@@ -16,10 +17,11 @@ namespace MyHobbyListProject.Forms.ProfileUser
         {
             InitializeComponent();
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-
+            FrmMenuHobbysList frmMenuHobbysList = new FrmMenuHobbysList();
+            frmMenuHobbysList.Show();
+            Close();
         }
     }
 }

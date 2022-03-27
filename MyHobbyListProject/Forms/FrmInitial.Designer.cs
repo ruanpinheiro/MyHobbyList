@@ -31,24 +31,23 @@ namespace MyHobbyListProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.btnEnter = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblLogin
+            // lblEmail
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(32, 374);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(33, 13);
-            this.lblLogin.TabIndex = 1;
-            this.lblLogin.Text = "Login";
-            this.lblLogin.Click += new System.EventHandler(this.label1_Click);
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(32, 374);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.TabIndex = 1;
+            this.lblEmail.Text = "E-mail";
             // 
             // lblPassword
             // 
@@ -58,14 +57,13 @@ namespace MyHobbyListProject
             this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password";
-            this.lblPassword.Click += new System.EventHandler(this.label2_Click);
             // 
-            // txtLogin
+            // txtEmail
             // 
-            this.txtLogin.Location = new System.Drawing.Point(35, 390);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(387, 20);
-            this.txtLogin.TabIndex = 3;
+            this.txtEmail.Location = new System.Drawing.Point(35, 390);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(387, 20);
+            this.txtEmail.TabIndex = 3;
             // 
             // txtPassword
             // 
@@ -82,6 +80,7 @@ namespace MyHobbyListProject
             this.btnExit.TabIndex = 16;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRegister
             // 
@@ -91,15 +90,17 @@ namespace MyHobbyListProject
             this.btnRegister.TabIndex = 15;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // btnEnter
+            // btnLogin
             // 
-            this.btnEnter.Location = new System.Drawing.Point(318, 505);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(105, 32);
-            this.btnEnter.TabIndex = 14;
-            this.btnEnter.Text = "Enter";
-            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnLogin.Location = new System.Drawing.Point(318, 505);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(105, 32);
+            this.btnLogin.TabIndex = 14;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // FrmInitial
             // 
@@ -108,27 +109,26 @@ namespace MyHobbyListProject
             this.ClientSize = new System.Drawing.Size(464, 569);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.btnEnter);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtLogin);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblLogin);
+            this.Controls.Add(this.lblEmail);
             this.Name = "FrmInitial";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.FrmInitial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Label lblLogin;
+        private Label lblEmail;
         private Label lblPassword;
-        private TextBox txtLogin;
+        private TextBox txtEmail;
         private TextBox txtPassword;
         private Button btnExit;
         private Button btnRegister;
-        private Button btnEnter;
+        private Button btnLogin;
     }
 }
 

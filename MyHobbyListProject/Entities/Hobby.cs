@@ -10,5 +10,12 @@ namespace MyHobbyListProject.Entities
         public EnumStatus EnumStatus { get; set; }
         public EnumScore EnumScore { get; set; }
 
+        protected Hobby(string name, string resume, EnumStatus enumStatus, EnumScore enumScore)
+        {
+            Name = name;
+            Resume = resume;
+            EnumStatus = enumStatus;
+            EnumScore = enumScore;
+        }
     }
 }

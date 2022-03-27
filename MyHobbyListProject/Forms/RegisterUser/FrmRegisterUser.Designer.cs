@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblRegisterUser = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -45,6 +46,12 @@
             this.maskedConfirmEmail = new System.Windows.Forms.MaskedTextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorFirstName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorLastName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorBirthday = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorFirstName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorBirthday)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRegisterUser
@@ -56,12 +63,11 @@
             this.lblRegisterUser.Size = new System.Drawing.Size(174, 29);
             this.lblRegisterUser.TabIndex = 0;
             this.lblRegisterUser.Text = "Register User";
-            this.lblRegisterUser.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(22, 221);
+            this.lblFirstName.Location = new System.Drawing.Point(25, 167);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(57, 13);
             this.lblFirstName.TabIndex = 1;
@@ -70,7 +76,7 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(163, 221);
+            this.lblLastName.Location = new System.Drawing.Point(247, 167);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(58, 13);
             this.lblLastName.TabIndex = 2;
@@ -79,7 +85,7 @@
             // lblBirthday
             // 
             this.lblBirthday.AutoSize = true;
-            this.lblBirthday.Location = new System.Drawing.Point(307, 221);
+            this.lblBirthday.Location = new System.Drawing.Point(25, 221);
             this.lblBirthday.Name = "lblBirthday";
             this.lblBirthday.Size = new System.Drawing.Size(45, 13);
             this.lblBirthday.TabIndex = 3;
@@ -96,17 +102,18 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(25, 237);
+            this.txtFirstName.Location = new System.Drawing.Point(28, 183);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(135, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(170, 20);
             this.txtFirstName.TabIndex = 8;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(166, 237);
+            this.txtLastName.Location = new System.Drawing.Point(250, 183);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(135, 20);
+            this.txtLastName.Size = new System.Drawing.Size(170, 20);
             this.txtLastName.TabIndex = 9;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // lblConfirmEmail
             // 
@@ -121,7 +128,8 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(25, 384);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(417, 20);
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(396, 20);
             this.txtPassword.TabIndex = 15;
             // 
             // lblPassword
@@ -137,7 +145,8 @@
             // 
             this.txtConfirmPassword.Location = new System.Drawing.Point(25, 438);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(417, 20);
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(396, 20);
             this.txtConfirmPassword.TabIndex = 17;
             // 
             // lblConfirmPassword
@@ -151,23 +160,25 @@
             // 
             // maskedBirthday
             // 
-            this.maskedBirthday.Location = new System.Drawing.Point(307, 237);
+            this.maskedBirthday.Location = new System.Drawing.Point(25, 237);
+            this.maskedBirthday.Mask = "00/00/0000";
             this.maskedBirthday.Name = "maskedBirthday";
             this.maskedBirthday.Size = new System.Drawing.Size(135, 20);
             this.maskedBirthday.TabIndex = 21;
+            this.maskedBirthday.ValidatingType = typeof(System.DateTime);
             // 
             // maskedEmail
             // 
             this.maskedEmail.Location = new System.Drawing.Point(25, 286);
             this.maskedEmail.Name = "maskedEmail";
-            this.maskedEmail.Size = new System.Drawing.Size(417, 20);
+            this.maskedEmail.Size = new System.Drawing.Size(396, 20);
             this.maskedEmail.TabIndex = 22;
             // 
             // maskedConfirmEmail
             // 
             this.maskedConfirmEmail.Location = new System.Drawing.Point(25, 333);
             this.maskedConfirmEmail.Name = "maskedConfirmEmail";
-            this.maskedConfirmEmail.Size = new System.Drawing.Size(417, 20);
+            this.maskedConfirmEmail.Size = new System.Drawing.Size(396, 20);
             this.maskedConfirmEmail.TabIndex = 23;
             // 
             // btnExit
@@ -178,6 +189,7 @@
             this.btnExit.TabIndex = 25;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
@@ -187,6 +199,19 @@
             this.btnSave.TabIndex = 24;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // errorFirstName
+            // 
+            this.errorFirstName.ContainerControl = this;
+            // 
+            // errorLastName
+            // 
+            this.errorLastName.ContainerControl = this;
+            // 
+            // errorBirthday
+            // 
+            this.errorBirthday.ContainerControl = this;
             // 
             // FrmRegisterUser
             // 
@@ -212,6 +237,9 @@
             this.Controls.Add(this.lblRegisterUser);
             this.Name = "FrmRegisterUser";
             this.Text = "FrmRegisterUser";
+            ((System.ComponentModel.ISupportInitialize)(this.errorFirstName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorBirthday)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +264,8 @@
         private System.Windows.Forms.MaskedTextBox maskedConfirmEmail;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errorFirstName;
+        private System.Windows.Forms.ErrorProvider errorLastName;
+        private System.Windows.Forms.ErrorProvider errorBirthday;
     }
 }

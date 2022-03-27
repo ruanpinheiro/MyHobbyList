@@ -30,18 +30,19 @@
         {
             this.maskedEpisodes = new System.Windows.Forms.MaskedTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.lblGenre = new System.Windows.Forms.Label();
+            this.lblClassification = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.lblAnimeName = new System.Windows.Forms.Label();
             this.txtAnimeName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblEpisodes = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.cmbGenre = new System.Windows.Forms.ComboBox();
+            this.cmbClassification = new System.Windows.Forms.ComboBox();
             this.lblResume = new System.Windows.Forms.Label();
+            this.cmbScore = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,14 +61,14 @@
             this.richTextBox1.TabIndex = 48;
             this.richTextBox1.Text = "";
             // 
-            // lblGenre
+            // lblClassification
             // 
-            this.lblGenre.AutoSize = true;
-            this.lblGenre.Location = new System.Drawing.Point(285, 258);
-            this.lblGenre.Name = "lblGenre";
-            this.lblGenre.Size = new System.Drawing.Size(36, 13);
-            this.lblGenre.TabIndex = 47;
-            this.lblGenre.Text = "Genre";
+            this.lblClassification.AutoSize = true;
+            this.lblClassification.Location = new System.Drawing.Point(285, 258);
+            this.lblClassification.Name = "lblClassification";
+            this.lblClassification.Size = new System.Drawing.Size(68, 13);
+            this.lblClassification.TabIndex = 47;
+            this.lblClassification.Text = "Classification";
             // 
             // lblStatus
             // 
@@ -111,14 +112,15 @@
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
             // 
-            // btnExit
+            // btnBack
             // 
-            this.btnExit.Location = new System.Drawing.Point(236, 527);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(105, 32);
-            this.btnExit.TabIndex = 41;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnBack.Location = new System.Drawing.Point(236, 527);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(105, 32);
+            this.btnBack.TabIndex = 41;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnSave
             // 
@@ -128,6 +130,7 @@
             this.btnSave.TabIndex = 40;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblEpisodes
             // 
@@ -146,13 +149,13 @@
             this.cmbStatus.Size = new System.Drawing.Size(161, 21);
             this.cmbStatus.TabIndex = 54;
             // 
-            // cmbGenre
+            // cmbClassification
             // 
-            this.cmbGenre.FormattingEnabled = true;
-            this.cmbGenre.Location = new System.Drawing.Point(288, 275);
-            this.cmbGenre.Name = "cmbGenre";
-            this.cmbGenre.Size = new System.Drawing.Size(161, 21);
-            this.cmbGenre.TabIndex = 55;
+            this.cmbClassification.FormattingEnabled = true;
+            this.cmbClassification.Location = new System.Drawing.Point(288, 275);
+            this.cmbClassification.Name = "cmbClassification";
+            this.cmbClassification.Size = new System.Drawing.Size(161, 21);
+            this.cmbClassification.TabIndex = 55;
             // 
             // lblResume
             // 
@@ -163,24 +166,34 @@
             this.lblResume.TabIndex = 56;
             this.lblResume.Text = "Resume";
             // 
+            // cmbScore
+            // 
+            this.cmbScore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbScore.FormattingEnabled = true;
+            this.cmbScore.Location = new System.Drawing.Point(149, 180);
+            this.cmbScore.Name = "cmbScore";
+            this.cmbScore.Size = new System.Drawing.Size(161, 21);
+            this.cmbScore.TabIndex = 57;
+            // 
             // FrmAddNewAnime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 569);
+            this.Controls.Add(this.cmbScore);
             this.Controls.Add(this.lblResume);
-            this.Controls.Add(this.cmbGenre);
+            this.Controls.Add(this.cmbClassification);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.lblEpisodes);
             this.Controls.Add(this.maskedEpisodes);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.lblGenre);
+            this.Controls.Add(this.lblClassification);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.lblAnimeName);
             this.Controls.Add(this.txtAnimeName);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
             this.Name = "FrmAddNewAnime";
             this.Text = "FrmAddNewAnime";
@@ -194,17 +207,18 @@
 
         private System.Windows.Forms.MaskedTextBox maskedEpisodes;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label lblGenre;
+        private System.Windows.Forms.Label lblClassification;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Label lblAnimeName;
         private System.Windows.Forms.TextBox txtAnimeName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblEpisodes;
         private System.Windows.Forms.ComboBox cmbStatus;
-        private System.Windows.Forms.ComboBox cmbGenre;
+        private System.Windows.Forms.ComboBox cmbClassification;
         private System.Windows.Forms.Label lblResume;
+        private System.Windows.Forms.ComboBox cmbScore;
     }
 }

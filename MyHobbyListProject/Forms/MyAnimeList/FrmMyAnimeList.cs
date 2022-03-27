@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyHobbyListProject.Entities;
+using MyHobbyListProject.Forms.MenuList;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +19,37 @@ namespace MyHobbyListProject.Forms.MyAnimeList
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        public FrmMyAnimeList(string email)
         {
+            InitializeComponent();
+
+            User user = new User();
+
+            /*listViewAnimes = (ListView)user.GetAnimes(email);*/ // Não sei se vai funcionar, testar depois.
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            FrmMenuHobbysList frmMenuHobbysList = new FrmMenuHobbysList();
+            frmMenuHobbysList.Show();
+            Close();
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            FrmAddNewAnime frmAddNewAnime = new FrmAddNewAnime();
+            frmAddNewAnime.Show();
+            Close();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            FrmEditOrRemoveAnime frmEditOrRemoveAnime = new FrmEditOrRemoveAnime();
+            frmEditOrRemoveAnime.Show();
+            Close();
+        }
+
+ 
     }
 }
